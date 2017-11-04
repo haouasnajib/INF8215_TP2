@@ -22,7 +22,7 @@ zip([A],[B],[[A,B]]) :- !.
 zip([U|M],[V|N],R) :- R1=[U,V], zip(M,N,R2), R=[R1|R2].
 
 % Enumération
-enumerate(0,[]) :- !. % pas de cut, pour avoir la possibilité d'utiliser w pour afficher toute la liste
+enumerate(0,[]). % pas de cut, pour avoir la possibilité d'utiliser w pour afficher toute la liste
 enumerate(N,L) :- N1 is N-1, enumerate(N1,L1), append(L1,[N1],L). % Using append/3
 
 % Monnaie
