@@ -3,14 +3,14 @@ sum(X,Y,R) :- R is X+Y.
 
 % Max
 max2(X,Y,M) :- X>=Y, M is X, !. % We're done here, don't evaluate any other predicates, don't backtrack.
-max2(X,Y,M) :- M is Y.
+max2(_,Y,Y).
 max2(X,Y,Z,M) :- (Z=<X;Z=<Y), max2(X,Y,M), !.
-max2(X,Y,Z,M) :- M is Z.
+max2(_,_,Z,Z).
 
 % Dérivée
-d(F,X,G) :- atomic(F), F\=X, G is 0, !. % Constante
+d(F,X,0) :- atomic(F), F\=X, !. % Constante
 
-d(F,X,G) :- F==X, G is 1, !. % Monôme degré 1, coef 1
+d(F,X,1) :- F==X, !. % Monôme degré 1, coef 1
 d(F,X,G) :- F=A*X, atomic(A), G is A, !. % Monôme degré 1, quelconque
 
 d(F,X,G) :- F=X^2, G=2*X, !. % Monôme degré 2, coef 1
