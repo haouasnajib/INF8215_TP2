@@ -45,5 +45,5 @@ petite_fille(X,Y) :- petit_enfant(X,Y),femme(X).
 petit_fils(X,Y) :- petit_enfant(X,Y),homme(X).
 niece(X,Y) :- (oncle(Y,X);tante(Y,X)),femme(X).
 neveu(X,Y) :- (oncle(Y,X);tante(Y,X)),homme(X).
-frere(X,Y) :- parent(Z,X),parent(Z,Y),X \== Y,homme(X),homme(Z). % parent vient deux fois et rien ne dit que X et Y doivent être différent. On aussi deux parents, so on choisit juste le mec
+frere(X,Y) :- parent(Z,X),parent(Z,Y),X \== Y,homme(X),homme(Z). % parent vient deux fois et rien ne dit que X et Y doivent être différent. On a aussi deux parents, so on choisit juste le mec
 soeur(X,Y) :- parent(Z,X),parent(Z,Y),X \== Y,femme(X),homme(Z).
