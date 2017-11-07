@@ -33,7 +33,7 @@ all_different([MaisonRouge,MaisonBleue]),
 all_different([Jaguar,Escargot,Serpent]),
 
 % Résolution.
-label(P1VarList), !. % “Assign a value to each variable in P2VarList.”
+label(P1VarList), !. % “Assign a value to each variable in P1VarList.”
 
 /**************************************************
  **************************************************

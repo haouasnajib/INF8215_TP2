@@ -11,5 +11,5 @@ amis(jean,pierre).
 amis(jean,paul).
 amis(pierre,paul).
 amis(paul,jacques).
-amis_2(X,Z) :- amis(X,Y),amis(Y,Z),(X \== Z).
+amis_2(X,Z) :- amis(X,Y),amis(Y,Z).
 amis(X) :- amis(X,_).
