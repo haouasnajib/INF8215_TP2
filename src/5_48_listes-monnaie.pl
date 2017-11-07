@@ -29,7 +29,6 @@ enumerate(N,L) :- N>0, N1 is N-1, enumerate(N1,L1), append(L1,[N1],L). % Using a
 rend_monnaie(Argent,Prix) :- (Argent-Prix)<(0.05), (Argent-Prix)>=0, !. % Aucune dénomination plus petite.
 rend_monnaie(Argent,Prix) :- A1 is Argent+(0.001), R is (A1-Prix), R>=2,      M is floor(R/2),      N is A1-2*M,      (M==0;(write(M), write(' piece de 2'), nl)),    rend_monnaie(N,Prix), !.
 rend_monnaie(Argent,Prix) :- A1 is Argent+(0.001), R is (A1-Prix), R>=1,      M is floor(R/1),      N is A1-M,        (M==0;(write(M), write(' piece de 1'), nl)),    rend_monnaie(N,Prix), !.
-rend_monnaie(Argent,Prix) :- A1 is Argent+(0.001), R is (A1-Prix), R>=(0.50), M is floor(R/(0.50)), N is A1-(0.50)*M, (M==0;(write(M), write(' piece de 0.50'), nl)), rend_monnaie(N,Prix), !.
 rend_monnaie(Argent,Prix) :- A1 is Argent+(0.001), R is (A1-Prix), R>=(0.25), M is floor(R/(0.25)), N is A1-(0.25)*M, (M==0;(write(M), write(' piece de 0.25'), nl)), rend_monnaie(N,Prix), !.
 rend_monnaie(Argent,Prix) :- A1 is Argent+(0.001), R is (A1-Prix), R>=(0.10), M is floor(R/(0.10)), N is A1-(0.10)*M, (M==0;(write(M), write(' piece de 0.10'), nl)), rend_monnaie(N,Prix), !.
 rend_monnaie(Argent,Prix) :- A1 is Argent+(0.001), R is (A1-Prix), R>=(0.05), M is floor(R/(0.05)), N is A1-(0.05)*M, (M==0;(write(M), write(' piece de 0.05'), nl)), rend_monnaie(N,Prix), !. 
